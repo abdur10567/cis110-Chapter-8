@@ -1,33 +1,32 @@
 #include <iostream>
 using namespace std;
 
-int Max(double Array[], int size)
+int Max(double Array[],int size)
 {
   int tmp = 0; 
   //i represents index
-  for(int i=0; i < size; i++)
+  for (int i=0; i< size; i++)
   {
     if (Array[i] > tmp)
-    {
       tmp = Array[i];    
-    }
   }
   return tmp;
 }
 
-int Min(double Array[], int size)
+
+
+int Min(double Array[],int size)
 {
   int tmp = Array[0];
   //i represents index
-  for(int i = 0; i < size; i++)
+  for (int i=1; i< size; i++)
   {
-    if(tmp > Array[i])
-    {
-      tmp = Array[i];
-    }
+    if (Array[i] < tmp)
+      tmp = Array[i];    
   }
   return tmp;
 }
+
 
 
 int sequentialSearch (double Array[],int size, int value)
@@ -49,7 +48,7 @@ int main() {
   const int SIZE = 10;
   int searchValue;
 
-  double scores[SIZE] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  double scores[SIZE] = {5,2,1,3,11,17,22,88,6,12};
 
   // for (int element = 0; element < SIZE; element++)
   // {   
@@ -63,9 +62,8 @@ int main() {
   }
 
   cout << "Highest element is: " << Max(scores, SIZE) << endl;
-  cout << "Lowest element is: " << Min(scores, SIZE) << endl;
 
-  // cout << "Lowest element is" << Min(double scores[],int SIZE) << endl;  
+  cout << "Lowest element is: " << Min(scores, SIZE)<<endl; //Min(double scores[],int SIZE) << endl;  
 
   
   //searching
