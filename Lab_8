@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+
+int Max(double Array[], int size)
+{
+  int tmp = 0; 
+  //i represents index
+  for(int i=0; i < size; i++)
+  {
+    if (Array[i] > tmp)
+    {
+      tmp = Array[i];    
+    }
+  }
+  return tmp;
+}
+
+int Min(double Array[], int size)
+{
+  int tmp;
+  //i represents index
+  for(int i = 0; i < size; i++)
+  {
+    if(tmp > Array[i])
+    {
+      tmp = Array[i];
+    }
+  }
+  return tmp;
+}
+
+
+int sequentialSearch (double Array[],int size, int value)
+{
+  bool found = false;  
+  for (int i=0; i< size; i++)
+  {
+    if (Array[i] == value)
+    {
+      found = true;    
+      return i;      
+      break;
+    }
+  }  
+  return -1;
+}
+
+int main() {
+  const int SIZE = 10;
+  int searchValue;
+
+  double scores[SIZE] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  // for (int element = 0; element < SIZE; element++)
+  // {   
+  //   cout << "Enter " << (element+1) << "th element value: " << endl;
+  //   cin >> scores[element];   
+  // }
+
+  for (int element = 0; element < SIZE; element++)
+  {       
+    cout << "Element " << (element+1) << "'s value is: " << scores[element] << endl;   
+  }
+
+  cout << "Highest element is: " << Max(scores, SIZE) << endl;
+  cout << "Lowest element is: " << Min(scores, SIZE) << endl;
+
+  // cout << "Lowest element is" << Min(double scores[],int SIZE) << endl;  
+
+  
+  //searching
+  cout << "Enter value you want to search: " << endl;  
+  cin >> searchValue;  
+
+  int result = (sequentialSearch(scores, SIZE, searchValue));
+  if (result != -1)
+  {
+    cout << "that value is found at index " << result << endl;  
+  }
+  else
+  {
+    cout << "that value is not found in this array " << endl;  
+  }
+}
